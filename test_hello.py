@@ -1,4 +1,4 @@
 from hello import add
 
-def add_test():
+def test_add():
     assert 3==add(1,3)
