@@ -1,20 +1,30 @@
-name: Azure Python 3.5
+name: Azure Python 3.11.9
+
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.11.9
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.11.9
-    - name: Install dependencies
-      run: |
-        make install
-    - name: Lint
-      run: |
-        make lint
-    - name: Test
-      run: |
-        make test
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.11.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.11.9
+
+      - name: Install dependencies
+        run: |
+          make install
+
+      - name: Install Pylint
+        run: |
+          pip install pylint
+
+      - name: Lint
+        run: |
+          make lint
+
+      - name: Test
+        run: |
+          make test
