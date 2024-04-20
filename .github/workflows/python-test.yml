@@ -17,10 +17,6 @@ jobs:
         run: |
           make install
 
-      - name: Install Pylint
-        run: |
-          pip install pylint
-          pip install pytest
 
       - name: Lint
         run: |
